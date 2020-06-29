@@ -79,3 +79,5 @@ module.exports = {
   },
 };
 ```
+
+https://webpack.js.org/guides/hot-module-replacement/

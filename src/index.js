@@ -7,10 +7,9 @@ import "./style.css";
 // const message = `Hello, my name is ${myname}`;
 
 const MyCoolApp = () => {
-  return <App />;
+  render(<App />, document.getElementById("app"));
 };
-
-render(<MyCoolApp />, document.getElementById("app"));
+MyCoolApp();
 
 if (module.hot) {
   module.hot.accept("./App", () => {
