@@ -6,7 +6,6 @@ module.exports = {
   output: {
     path: path.join(__dirname, "dist"),
     filename: "main.js",
-    // publicPath: "/dist/",
   },
   resolve: {
     extensions: [".js", ".jsx"],
@@ -28,11 +27,11 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    compress: true,
-    // publicPath: "/src/",
+    // compress: true,
     hot: true,
+    historyApiFallback: true,
   },
-  // devtool: "cheap-eval-source-map",
+  devtool: "cheap-eval-source-map",
   stats: {
     colors: true,
     reasons: true,
