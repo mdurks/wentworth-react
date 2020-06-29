@@ -1,11 +1,19 @@
 import React from "react";
 import { render } from "react-dom";
+import App from "./App";
 import "./style.css";
 
-const App = () => (
-  <div>
-    <h1>svideo</h1>
-  </div>
-);
+// const myname = "SSSSMichael";
+// const message = `Hello, my name is ${myname}`;
 
-render(<App />, document.getElementById("app"));
+const MyCoolApp = () => {
+  return <App />;
+};
+
+render(<MyCoolApp />, document.getElementById("app"));
+
+if (module.hot) {
+  module.hot.accept("./App", () => {
+    MyCoolApp();
+  });
+}

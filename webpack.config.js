@@ -1,6 +1,15 @@
 var path = require("path");
 
 module.exports = {
+  context: __dirname,
+  entry: "./src/index.js",
+  output: {
+    path: path.join(__dirname, "dist"),
+    filename: "main.js",
+  },
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
   module: {
     rules: [
       {
@@ -18,5 +27,12 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
+    hot: true,
+  },
+  // devtool: "cheap-eval-source-map",
+  stats: {
+    colors: true,
+    reasons: true,
+    chunks: true,
   },
 };
