@@ -34,7 +34,7 @@ module.exports = {
 
     historyApiFallback: true,
   },
-  devtool: "cheap-eval-source-map",
+  // devtool: "cheap-eval-source-map",
   stats: {
     colors: true,
     reasons: true,
