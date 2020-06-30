@@ -4,8 +4,9 @@ module.exports = {
   context: __dirname,
   entry: "./src/index.js",
   output: {
-    path: path.join(__dirname, "/dist"),
+    path: path.join(__dirname, "dist"),
     filename: "main.js",
+    publicPath: "/dist/",
   },
   resolve: {
     extensions: [".js", ".jsx"],
