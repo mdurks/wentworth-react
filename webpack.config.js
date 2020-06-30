@@ -4,7 +4,7 @@ module.exports = {
   context: __dirname,
   entry: "./src/index.js",
   output: {
-    path: path.join(__dirname, "dist"),
+    path: path.join(__dirname, "/dist/"),
     filename: "main.js",
     publicPath: "/",
   },
@@ -28,6 +28,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
+    publicPath: "/",
     // compress: true,
 
     // use webpacks built in hot module replacement
