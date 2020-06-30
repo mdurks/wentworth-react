@@ -82,3 +82,5 @@ module.exports = {
 
 https://webpack.js.org/guides/hot-module-replacement/
 https://reacttraining.com/react-router/web/guides/quick-start
+https://loadable-components.com/docs/babel-plugin/
+https://www.npmjs.com/package/eslint-import-resolver-webpack
