@@ -28,7 +28,10 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     // compress: true,
+
+    // use webpacks built in hot module replacement
     hot: true,
+
     historyApiFallback: true,
   },
   devtool: "cheap-eval-source-map",
