@@ -1,0 +1,18 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": false,
+    "**/.hg": false,
+    "**/CVS": false,
+    "**/.DS_Store": false,
+    "node_modules": true,
+    "*-lock.json": false,
+    "**/*.map": false,
+    "**/.vscode": true,
+    ".vscode": true
+  },
+  "explorerExclude.backup": null,
+  "files.associations": {
+    "*.js": "javascriptreact"
+  }
+}

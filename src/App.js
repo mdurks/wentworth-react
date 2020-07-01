@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import loadable from "@loadable/component";
 
+import "./style.css";
+
 import Landing from "./Landing";
 
 const App = () => {
