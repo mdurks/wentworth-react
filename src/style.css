@@ -1,10 +1,43 @@
+html {
+  height: 100%;
+}
+
 body {
-  background-color: cadetblue;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #8bb8b9;
+  color: white;
   font-size: 20px;
   line-height: normal;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+* {
+  margin-top: 0;
+}
+
 a {
+  color: rgb(217, 255, 243);
   text-decoration: none;
+}
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#app > * {
+  flex: 1 0 auto;
+}
+
+#app > :first-child,
+#app > :last-child {
+  flex: 0 0 auto;
 }

@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import MainNav from "./components/MainNav";
+import MainFooter from "./components/MainFooter";
 import Product from "./components/Product";
+import Styled_SiteContainer from "./styles/commonStyles";
 
 class Jewellery extends Component {
   constructor(props) {
@@ -32,23 +35,37 @@ class Jewellery extends Component {
     `;
 
     return (
-      <Query query={PRODUCTS_QUERY}>
-        {({ loading, error, data }) => {
-          if (loading) return <div>Fetching products.....</div>;
-          if (error) return <div>Error fetching products</div>;
+      <>
+        <MainNav />
+        <Query query={PRODUCTS_QUERY}>
+          {({ loading, error, data }) => {
+            if (loading)
+              return (
+                <Styled_SiteContainer>
+                  Fetching products...
+                </Styled_SiteContainer>
+              );
+            if (error)
+              return (
+                <Styled_SiteContainer>
+                  Error fetching products
+                </Styled_SiteContainer>
+              );
 
-          const items = data.products;
-          //   console.log(items);
+            const items = data.products;
+            //   console.log(items);
 
-          return (
-            <div>
-              {items.map((item) => (
-                <Product key={item.id} product={item} />
-              ))}
-            </div>
-          );
-        }}
-      </Query>
+            return (
+              <Styled_SiteContainer>
+                {items.map((item) => (
+                  <Product key={item.id} product={item} />
+                ))}
+              </Styled_SiteContainer>
+            );
+          }}
+        </Query>
+        <MainFooter />
+      </>
     );
   }
 }

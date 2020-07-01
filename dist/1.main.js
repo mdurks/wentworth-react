@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{45:function(n,e,t){"use strict";t.r(e);var a=t(2),c=t.n(a);e.default=function(){return c.a.createElement(c.a.Fragment,null,c.a.createElement("div",null,"Contact page"))}}}]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{54:function(e,n,a){"use strict";a.r(n);var t=a(1),l=a.n(t),c=a(30);n.default=function(){return l.a.createElement(l.a.Fragment,null,l.a.createElement(c.a,null),l.a.createElement("div",null,"Contact page"))}}}]);

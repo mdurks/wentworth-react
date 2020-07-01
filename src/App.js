@@ -9,9 +9,6 @@ import Landing from "./Landing";
 const App = () => {
   return (
     <BrowserRouter>
-      <Link to="/">Home</Link> | <Link to="/about">About</Link> |{" "}
-      <Link to="/jewellery">Jewellery</Link> |{" "}
-      <Link to="/contact">Contact</Link>
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route path="/about" component={loadable(() => import("./About"))} />
