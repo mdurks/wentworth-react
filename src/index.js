@@ -12,9 +12,9 @@ const client = new ApolloClient({
 });
 
 const renderApp = () => {
-  // Abstract out App to enable hot module replacement, routing and code splitting
   render(
     <ApolloProvider client={client}>
+      {/* Abstract out App to enable hot module replacement, routing and code splitting */}
       <App />
     </ApolloProvider>,
     document.getElementById("app")

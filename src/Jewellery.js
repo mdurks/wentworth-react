@@ -38,7 +38,8 @@ class Jewellery extends Component {
           if (error) return <div>Error fetching products</div>;
 
           const items = data.products;
-          console.log(items);
+          //   console.log(items);
+
           return (
             <div>
               {items.map((item) => (
