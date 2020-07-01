@@ -10,10 +10,15 @@ const App = () => {
   return (
     <BrowserRouter>
       <Link to="/">Home</Link> | <Link to="/about">About</Link> |{" "}
+      <Link to="/jewellery">Jewellery</Link> |{" "}
       <Link to="/contact">Contact</Link>
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route path="/about" component={loadable(() => import("./About"))} />
+        <Route
+          path="/jewellery"
+          component={loadable(() => import("./Jewellery"))}
+        />
         <Route
           path="/contact"
           component={loadable(() => import("./Contact"))}
