@@ -16,6 +16,24 @@ const WELCOME_QUERY = gql`
   }
 `;
 
+const Styled_HeroImg = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  overflow: hidden;
+  height: 200px;
+  padding-bottom: 20px;
+
+  @media (min-width: 768px) {
+    height: 700px;
+
+    padding-bottom: 160px;
+  }
+`;
+
+const responsiveImage = require("./img/serkan-turk-unsplash.jpg");
+
 const Landing = () => {
   return (
     <>
@@ -32,12 +50,19 @@ const Landing = () => {
           const items = data.welcomes[0];
           // console.log(items);
           return (
-            <>
+            <div>
+              <Styled_HeroImg>
+                <img
+                  srcSet={responsiveImage.srcSet}
+                  src={responsiveImage.src}
+                />
+              </Styled_HeroImg>
+
               <Styled_SiteContainer>
                 <h1>{items.heroHeading}</h1>
                 <p>{items.firstIntroMessage}</p>
               </Styled_SiteContainer>
-            </>
+            </div>
           );
         }}
       </Query>

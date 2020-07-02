@@ -23,6 +23,21 @@ module.exports = {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.(jpe?g|jpg|png)$/i,
+        use: {
+          loader: "responsive-loader",
+          options: {
+            // If you want to enable sharp support:
+            adapter: require("responsive-loader/sharp"),
+            publicPath: "/img",
+            outputPath: "/img",
+            sizes: [600, 1200, 2000],
+            name: `[name]-[width]-[hash].[ext]`,
+            quality: 85,
+          },
+        },
+      },
     ],
   },
   devServer: {

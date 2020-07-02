@@ -1,18 +1,28 @@
 import React from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import styled from "styled-components";
 
 import MainNav from "./components/MainNav";
 import MainFooter from "./components/MainFooter";
-import Styled_SiteContainer from "./styles/commonStyles";
+import { Styled_SiteContainer } from "./styles/commonStyles";
 
 const ABOUT_QUERY = gql`
   query {
     abouts {
       heroHeading
-      firstIntroMessage
+      firstIntroMessage {
+        html
+      }
     }
   }
+`;
+
+const responsiveImage = require("./img/wentworth_crest.jpg");
+
+const Styled_WentworthCrestImg = styled.div`
+  width: 200px;
+  margin: 30px auto;
 `;
 
 const About = () => (
@@ -29,11 +39,26 @@ const About = () => (
 
         const items = data.abouts[0];
         // console.log(items);
+
+        function createMarkup() {
+          return { __html: items.firstIntroMessage.html };
+        }
+
+        function RenderRichText() {
+          return <div dangerouslySetInnerHTML={createMarkup()} />;
+        }
+
         return (
           <>
             <Styled_SiteContainer>
               <h1>{items.heroHeading}</h1>
-              <p>{items.firstIntroMessage}</p>
+              <Styled_WentworthCrestImg>
+                <img
+                  srcSet={responsiveImage.srcSet}
+                  src={responsiveImage.src}
+                />
+              </Styled_WentworthCrestImg>
+              {RenderRichText()}
             </Styled_SiteContainer>
           </>
         );

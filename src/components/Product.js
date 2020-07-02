@@ -1,21 +1,32 @@
 import React from "react";
 import GraphImg from "graphcms-image";
+import styled from "styled-components";
+
+const Styled_ProductItem = styled.div`
+  margin-bottom: 80px;
+`;
+
+const Styled_Img = styled.div`
+  margin-bottom: 25px;
+`;
 
 const Product = (props) => {
   return (
-    <div>
+    <Styled_ProductItem>
       {/* <img src={props.product.image[0].url} alt={props.product.name} /> */}
-      <GraphImg
-        image={props.product.image[0]}
-        transforms={["quality=value:80"]}
-        maxWidth={1200}
-      />
+      <h2>{props.product.name}</h2>
+      <Styled_Img>
+        <GraphImg
+          image={props.product.image[0]}
+          transforms={["quality=value:80"]}
+          maxWidth={1200}
+        />
+      </Styled_Img>
       <div>
-        <h5>{props.product.name}</h5>
-        <p>£{props.product.price}</p>
         <p>{props.product.description}</p>
+        <p>£{props.product.price}</p>
       </div>
-    </div>
+    </Styled_ProductItem>
   );
 };
 export default Product;

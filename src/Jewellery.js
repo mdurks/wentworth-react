@@ -17,7 +17,7 @@ class Jewellery extends Component {
   render() {
     const PRODUCTS_QUERY = gql`
       query {
-        products {
+        products(orderBy: updatedAt_DESC) {
           id
           name
           price

@@ -1,27 +1,26 @@
 import styled, { css } from "styled-components";
 
-const Styled_SiteContainer = styled.section`
+export const Styled_SiteContainer = styled.section`
   display: block;
   width: calc(100% - 30px);
-  max-width: 800px;
+  max-width: 1060px;
   margin: auto;
   padding: 15px;
   overflow: auto;
-  background-color: cadetblue;
 
   ${(props) =>
     props.mainNav &&
     css`
-      background-color: #48888a;
       padding-top: 15px;
       padding-bottom: 30px;
+      text-align: center;
     `};
 
   ${(props) =>
     props.mainFooter &&
     css`
+      margin-bottom: 10px;
       padding-bottom: 100px;
-      background-color: #355354;
     `};
 `;
 
