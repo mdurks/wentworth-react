@@ -23,6 +23,18 @@ const Styled_WentworthCrestImg = styled.div`
   margin: 30px auto;
 `;
 
+const Styled_CMScontent = styled.div`
+  img {
+    width: 100%;
+    height: auto;
+  }
+  @media (min-width: 768px) {
+    img {
+      width: auto;
+    }
+  }
+`;
+
 const About = () => (
   <>
     <Query query={ABOUT_QUERY}>
@@ -55,7 +67,7 @@ const About = () => (
                   src={responsiveImage.src}
                 />
               </Styled_WentworthCrestImg>
-              {RenderRichText()}
+              <Styled_CMScontent>{RenderRichText()}</Styled_CMScontent>
             </Styled_SiteContainer>
           </>
         );
