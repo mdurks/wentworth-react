@@ -22,10 +22,11 @@ const Styled_HeroImg = styled.div`
   overflow: hidden;
   height: 200px;
   padding-bottom: 20px;
+  margin-bottom: 10px;
 
   @media (min-width: 768px) {
     height: 700px;
-
+    margin-bottom: 50px;
     padding-bottom: 160px;
   }
 `;
