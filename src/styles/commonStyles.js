@@ -11,8 +11,7 @@ export const Styled_SiteContainer = styled.section`
   ${(props) =>
     props.mainNav &&
     css`
-      padding-top: 15px;
-      padding-bottom: 30px;
+      padding: 15px 0 30px;
       text-align: center;
     `};
 
