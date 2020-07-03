@@ -3,8 +3,6 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 import styled from "styled-components";
-import MainNav from "./components/MainNav";
-import MainFooter from "./components/MainFooter";
 import Styled_SiteContainer from "./styles/commonStyles";
 
 const WELCOME_QUERY = gql`
@@ -37,7 +35,6 @@ const responsiveImage = require("./img/serkan-turk-unsplash.jpg");
 const Landing = () => {
   return (
     <>
-      <MainNav />
       <Query query={WELCOME_QUERY}>
         {({ loading, error, data }) => {
           if (loading)
@@ -66,7 +63,6 @@ const Landing = () => {
           );
         }}
       </Query>
-      <MainFooter />
     </>
   );
 };

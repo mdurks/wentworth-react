@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import MainNav from "./components/MainNav";
-import MainFooter from "./components/MainFooter";
 import Product from "./components/Product";
 import Styled_SiteContainer from "./styles/commonStyles";
 
@@ -36,7 +34,6 @@ class Jewellery extends Component {
 
     return (
       <>
-        <MainNav />
         <Query query={PRODUCTS_QUERY}>
           {({ loading, error, data }) => {
             if (loading)
@@ -64,7 +61,6 @@ class Jewellery extends Component {
             );
           }}
         </Query>
-        <MainFooter />
       </>
     );
   }

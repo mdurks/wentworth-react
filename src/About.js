@@ -3,8 +3,6 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import styled from "styled-components";
 
-import MainNav from "./components/MainNav";
-import MainFooter from "./components/MainFooter";
 import { Styled_SiteContainer } from "./styles/commonStyles";
 
 const ABOUT_QUERY = gql`
@@ -27,7 +25,6 @@ const Styled_WentworthCrestImg = styled.div`
 
 const About = () => (
   <>
-    <MainNav />
     <Query query={ABOUT_QUERY}>
       {({ loading, error, data }) => {
         if (loading)
@@ -64,7 +61,6 @@ const About = () => (
         );
       }}
     </Query>
-    <MainFooter />
   </>
 );
 

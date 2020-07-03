@@ -2,8 +2,6 @@ import React from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
-import MainNav from "./components/MainNav";
-import MainFooter from "./components/MainFooter";
 import Styled_SiteContainer from "./styles/commonStyles";
 
 const CONTACT_QUERY = gql`
@@ -17,7 +15,6 @@ const CONTACT_QUERY = gql`
 
 const Contact = () => (
   <>
-    <MainNav />
     <Query query={CONTACT_QUERY}>
       {({ loading, error, data }) => {
         if (loading)
@@ -39,7 +36,6 @@ const Contact = () => (
         );
       }}
     </Query>
-    <MainFooter />
   </>
 );
 
