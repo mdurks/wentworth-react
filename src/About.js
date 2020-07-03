@@ -16,22 +16,9 @@ const ABOUT_QUERY = gql`
   }
 `;
 
-const responsiveImage = require("./img/wentworth_crest.jpg");
-
-const Styled_WentworthCrestImg = styled.div`
-  width: 200px;
-  margin: 30px auto;
-`;
-
 const Styled_CMScontent = styled.div`
   img {
-    width: 100%;
     height: auto;
-  }
-  @media (min-width: 768px) {
-    img {
-      width: auto;
-    }
   }
 `;
 
@@ -61,12 +48,6 @@ const About = () => (
           <>
             <Styled_SiteContainer>
               <h1>{items.heroHeading}</h1>
-              <Styled_WentworthCrestImg>
-                <img
-                  srcSet={responsiveImage.srcSet}
-                  src={responsiveImage.src}
-                />
-              </Styled_WentworthCrestImg>
               <Styled_CMScontent>{RenderRichText()}</Styled_CMScontent>
             </Styled_SiteContainer>
           </>

@@ -9,7 +9,9 @@ const WELCOME_QUERY = gql`
   query {
     welcomes {
       heroHeading
-      firstIntroMessage
+      firstIntroMessage {
+        html
+      }
     }
   }
 `;
@@ -31,6 +33,13 @@ const Styled_HeroImg = styled.div`
   }
 `;
 
+const Styled_CMScontent = styled.div`
+  img {
+    width: 100%;
+    height: auto;
+  }
+`;
+
 const responsiveImage = require("./img/serkan-turk-unsplash.jpg");
 
 const Landing = () => {
@@ -47,8 +56,17 @@ const Landing = () => {
 
           const items = data.welcomes[0];
           // console.log(items);
+
+          function createMarkup() {
+            return { __html: items.firstIntroMessage.html };
+          }
+
+          function RenderRichText() {
+            return <div dangerouslySetInnerHTML={createMarkup()} />;
+          }
+
           return (
-            <div>
+            <>
               <Styled_HeroImg>
                 <img
                   srcSet={responsiveImage.srcSet}
@@ -58,9 +76,9 @@ const Landing = () => {
 
               <Styled_SiteContainer>
                 <h1>{items.heroHeading}</h1>
-                <p>{items.firstIntroMessage}</p>
+                <Styled_CMScontent>{RenderRichText()}</Styled_CMScontent>
               </Styled_SiteContainer>
-            </div>
+            </>
           );
         }}
       </Query>

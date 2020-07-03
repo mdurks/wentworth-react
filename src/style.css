@@ -9,6 +9,10 @@ html {
   box-sizing: inherit;
 }
 
+* {
+  margin-top: 0;
+}
+
 body {
   height: 100%;
   margin: 0;
@@ -25,8 +29,28 @@ body {
   }
 }
 
-* {
-  margin-top: 0;
+#app {
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  #app {
+    display: flex;
+    margin-bottom: 20px;
+    height: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+#app > * {
+  flex: 1 0 auto;
+}
+
+#app > :first-child,
+#app > :last-child {
+  flex: 0 0 auto;
 }
 
 h1,
@@ -93,24 +117,20 @@ img {
   width: 100%;
 }
 
-#app {
-  background-color: #fff;
-}
-@media (min-width: 768px) {
-  #app {
-    display: flex;
-    height: 100%;
-    height: auto;
-    flex-direction: column;
-    align-items: stretch;
-  }
+/* CMS Rules */
+/* --------------------------------------------- */
+
+.cms__img-width-auto img {
+  width: auto;
 }
 
-#app > * {
-  flex: 1 0 auto;
+.cms__img-width-full img {
+  width: 100%;
 }
 
-#app > :first-child,
-#app > :last-child {
-  flex: 0 0 auto;
+.cms__center {
+  text-align: center;
 }
+
+/* End: CMS Rules */
+/* --------------------------------------------- */

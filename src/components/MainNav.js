@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Styled_SiteContainer from "../styles/commonStyles";
 
@@ -10,8 +10,11 @@ const Styled_WentworthSymbolImg = styled.div`
   width: 60px;
 
   @media only screen and (min-width: 767px) {
-    margin: 20px auto 20px;
     width: 100px;
+  }
+
+  img {
+    width: 100%;
   }
 `;
 
@@ -19,15 +22,15 @@ const Styled_WentworthTitle = styled.span`
   display: inline-block;
   text-transform: uppercase;
   font-family: "Playfair Display", serif;
-  font-size: 30px;
-  line-height: 20px;
+  font-size: 25px;
+  line-height: 25px;
 
   :first-letter {
-    font-size: 40px;
+    font-size: 32px;
   }
 
   :first-of-type {
-    margin-right: 11px;
+    margin-right: 7px;
   }
 
   @media only screen and (min-width: 767px) {
@@ -40,9 +43,9 @@ const Styled_WentworthTitle = styled.span`
   }
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 0 3px;
   font-size: 15px;
   font-family: "Playfair Display", serif;
@@ -50,29 +53,60 @@ const StyledLink = styled(Link)`
   font-weight: bold;
 
   @media (min-width: 768px) {
+    margin-top: 20px;
     padding: 0 5%;
     font-size: 18px;
+  }
+
+  :hover {
+    text-decoration: none;
+  }
+
+  &.is-active:after {
+    content: "";
+    display: block;
+    position: relative;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
   }
 `;
 
 const MainNav = () => (
-  <Styled_SiteContainer mainNav>
-    <Styled_WentworthSymbolImg>
-      <img
-        srcSet={Wentworth_Crest.srcSet}
-        src={Wentworth_Crest.src}
-        alt="Wentworths Crest"
-      />
-    </Styled_WentworthSymbolImg>
-    <p>
-      <Styled_WentworthTitle>Wentworth</Styled_WentworthTitle>
-      <Styled_WentworthTitle>Jewels</Styled_WentworthTitle>
-    </p>
-    <StyledLink to="/">Home</StyledLink> |{" "}
-    <StyledLink to="/about">About</StyledLink> |{" "}
-    <StyledLink to="/jewellery">Jewellery</StyledLink> |{" "}
-    <StyledLink to="/contact">Contact</StyledLink>
-  </Styled_SiteContainer>
+  <header>
+    <Styled_SiteContainer mainNav>
+      <NavLink exact={true} to="/">
+        <Styled_WentworthSymbolImg>
+          <img
+            srcSet={Wentworth_Crest.srcSet}
+            src={Wentworth_Crest.src}
+            alt="Wentworths Crest"
+          />
+        </Styled_WentworthSymbolImg>
+        <p>
+          <Styled_WentworthTitle>Wentworth</Styled_WentworthTitle>
+          <Styled_WentworthTitle>Jewels</Styled_WentworthTitle>
+        </p>
+      </NavLink>
+      <StyledLink activeClassName="is-active" exact={true} to="/">
+        Home
+      </StyledLink>{" "}
+      |{" "}
+      <StyledLink activeClassName="is-active" to="/about">
+        About
+      </StyledLink>{" "}
+      |{" "}
+      <StyledLink activeClassName="is-active" to="/jewellery">
+        Jewellery
+      </StyledLink>{" "}
+      |{" "}
+      <StyledLink activeClassName="is-active" to="/contact">
+        Contact
+      </StyledLink>
+    </Styled_SiteContainer>
+  </header>
 );
 
 export default MainNav;

@@ -12,19 +12,21 @@ const App = () => {
   return (
     <BrowserRouter>
       <MainNav />
-      <Switch>
-        <Route exact path="/" component={Landing} />
-        <Route path="/about" component={loadable(() => import("./About"))} />
-        <Route
-          path="/jewellery"
-          component={loadable(() => import("./Jewellery"))}
-        />
-        <Route
-          path="/contact"
-          component={loadable(() => import("./Contact"))}
-        />
-        <Route component={loadable(() => import("./FourOhFour"))} />
-      </Switch>
+      <main>
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <Route path="/about" component={loadable(() => import("./About"))} />
+          <Route
+            path="/jewellery"
+            component={loadable(() => import("./Jewellery"))}
+          />
+          <Route
+            path="/contact"
+            component={loadable(() => import("./Contact"))}
+          />
+          <Route component={loadable(() => import("./FourOhFour"))} />
+        </Switch>
+      </main>
       <MainFooter />
     </BrowserRouter>
   );
