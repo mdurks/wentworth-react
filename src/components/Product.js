@@ -32,7 +32,7 @@ const Product = (props) => {
         <GraphImg
           image={props.product.image[0]}
           transforms={["quality=value:80"]}
-          maxWidth={1200}
+          maxWidth={500}
         />
       </Styled_Img>
       <div>

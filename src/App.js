@@ -5,7 +5,7 @@ import loadable from "@loadable/component";
 import MainNav from "./components/MainNav";
 import "./style.css";
 
-import Landing from "./Landing";
+import Homepage from "./Homepage";
 import MainFooter from "./components/MainFooter";
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
       <MainNav />
       <main>
         <Switch>
-          <Route exact path="/" component={Landing} />
+          <Route exact path="/" component={Homepage} />
           <Route path="/about" component={loadable(() => import("./About"))} />
           <Route
             path="/jewellery"

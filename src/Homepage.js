@@ -1,6 +1,7 @@
 import React from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import GraphImg from "graphcms-image";
 
 import styled from "styled-components";
 import Styled_SiteContainer from "./styles/commonStyles";
@@ -12,37 +13,43 @@ const WELCOME_QUERY = gql`
       firstIntroMessage {
         html
       }
+      heroImage {
+        id
+        url
+        handle
+        width
+        height
+      }
     }
   }
 `;
 
 const Styled_HeroImg = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   height: 200px;
   overflow: hidden;
-  height: 200px;
-  padding-bottom: 20px;
-  margin-bottom: 10px;
 
-  @media (min-width: 768px) {
-    height: 700px;
-    margin-bottom: 50px;
-    padding-bottom: 160px;
+  > div {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (min-width: 600px) {
+    height: 400px;
+  }
+  @media (min-width: 950px) {
+    height: 600px;
   }
 `;
 
 const Styled_CMScontent = styled.div`
   img {
-    width: 100%;
     height: auto;
   }
 `;
 
-const responsiveImage = require("./img/serkan-turk-unsplash.jpg");
-
-const Landing = () => {
+const Homepage = () => {
   return (
     <>
       <Query query={WELCOME_QUERY}>
@@ -68,9 +75,10 @@ const Landing = () => {
           return (
             <>
               <Styled_HeroImg>
-                <img
-                  srcSet={responsiveImage.srcSet}
-                  src={responsiveImage.src}
+                <GraphImg
+                  image={items.heroImage}
+                  transforms={["quality=value:80"]}
+                  maxWidth={1200}
                 />
               </Styled_HeroImg>
 
@@ -86,4 +94,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default Homepage;

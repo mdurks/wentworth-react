@@ -50,7 +50,7 @@ class Jewellery extends Component {
               );
 
             const items = data.products;
-            //   console.log(items);
+            console.log(items);
 
             return (
               <Styled_SiteContainer productFlexList>
