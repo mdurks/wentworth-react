@@ -53,7 +53,7 @@ class Jewellery extends Component {
             //   console.log(items);
 
             return (
-              <Styled_SiteContainer>
+              <Styled_SiteContainer productFlexList>
                 {items.map((item) => (
                   <Product key={item.id} product={item} />
                 ))}
