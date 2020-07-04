@@ -30,6 +30,14 @@ const Styled_HeroImg = styled.div`
   overflow: hidden;
 
   > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  > div > div {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -75,11 +83,13 @@ const Homepage = () => {
           return (
             <>
               <Styled_HeroImg>
-                <GraphImg
-                  image={items.heroImage}
-                  transforms={["quality=value:80"]}
-                  maxWidth={1200}
-                />
+                <div>
+                  <GraphImg
+                    image={items.heroImage}
+                    transforms={["quality=value:80"]}
+                    maxWidth={1200}
+                  />
+                </div>
               </Styled_HeroImg>
 
               <Styled_SiteContainer>
