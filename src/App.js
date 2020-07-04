@@ -17,6 +17,10 @@ const App = () => {
           <Route exact path="/" component={Homepage} />
           <Route path="/about" component={loadable(() => import("./About"))} />
           <Route
+            path="/details/:id"
+            component={loadable(() => import("./Details"))}
+          />
+          <Route
             path="/jewellery"
             component={loadable(() => import("./Jewellery"))}
           />

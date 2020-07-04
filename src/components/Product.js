@@ -1,8 +1,9 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import GraphImg from "graphcms-image";
 import styled from "styled-components";
 
-const Styled_ProductItem = styled.div`
+const Styled_ProductItem = styled(Link)`
   margin-bottom: 40px;
   padding-bottom: 30px;
   border-bottom: 1px dashed #bdbdbd;
@@ -25,7 +26,7 @@ const Styled_Title = styled.h2`
 
 const Product = (props) => {
   return (
-    <Styled_ProductItem>
+    <Styled_ProductItem to={`/details/${props.product.id}`}>
       {/* <img src={props.product.image[0].url} alt={props.product.name} /> */}
       <Styled_Title>{props.product.name}</Styled_Title>
       <Styled_Img>

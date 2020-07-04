@@ -29,13 +29,18 @@ export const Styled_SiteContainer = styled.section`
       flex-flow: row wrap;
 
       @media (min-width: 768px) {
-        > div {
+        > a {
           display: inline-block;
           width: calc(50% - 20px);
           margin-top: 20px;
           margin-bottom: 20px;
           padding: 10px 20px;
           background-color: hsla(0, 0%, 98%, 1);
+
+          :hover {
+            background-color: hsla(0, 0%, 93%, 1);
+            text-decoration: none;
+          }
 
           :nth-child(odd) {
             margin-right: 20px;
