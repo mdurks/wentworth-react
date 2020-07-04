@@ -13,6 +13,9 @@ html {
   margin-top: 0;
 }
 
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:100,300,400"); */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Raleway:wght@400;700&display=swap");
+
 body {
   height: 100%;
   margin: 0;
