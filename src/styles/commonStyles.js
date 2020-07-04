@@ -31,10 +31,18 @@ export const Styled_SiteContainer = styled.section`
       @media (min-width: 768px) {
         > div {
           display: inline-block;
-          width: calc(50% - 40px);
+          width: calc(50% - 20px);
+          margin-top: 20px;
+          margin-bottom: 20px;
           padding: 10px 20px;
-          margin: 20px;
-          background-color: #f5f5f5;
+          background-color: hsla(0, 0%, 98%, 1);
+
+          :nth-child(odd) {
+            margin-right: 20px;
+          }
+          :nth-child(even) {
+            margin-left: 20px;
+          }
         }
       }
     `};
