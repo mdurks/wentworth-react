@@ -26,8 +26,9 @@ const Styled_Title = styled.h2`
 
 const Product = (props) => {
   return (
-    <Styled_ProductItem to={`/details/${props.product.id}`}>
-      {/* <img src={props.product.image[0].url} alt={props.product.name} /> */}
+    <Styled_ProductItem
+      to={`/${props.product.productType.toLowerCase()}/${props.product.slug}`}
+    >
       <Styled_Title>{props.product.name}</Styled_Title>
       <Styled_Img>
         <GraphImg

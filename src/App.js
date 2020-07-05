@@ -17,7 +17,23 @@ const App = () => {
           <Route exact path="/" component={Homepage} />
           <Route path="/about" component={loadable(() => import("./About"))} />
           <Route
-            path="/details/:id"
+            path="/ring/:id"
+            component={loadable(() => import("./Details"))}
+          />
+          <Route
+            path="/earring/:id"
+            component={loadable(() => import("./Details"))}
+          />
+          <Route
+            path="/necklace/:id"
+            component={loadable(() => import("./Details"))}
+          />
+          <Route
+            path="/bracelet/:id"
+            component={loadable(() => import("./Details"))}
+          />
+          <Route
+            path="/other/:id"
             component={loadable(() => import("./Details"))}
           />
           <Route

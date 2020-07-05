@@ -25,17 +25,15 @@ const Styled_Img = styled.div`
 
 const Styled_Title = styled.h2`
   @media (min-width: 768px) {
-    min-height: 80px;
     text-align: center;
   }
 `;
 
 const Details = (props) => {
-  const PRODUCTS_QUERY = gql`
+  const SINGLE_PRODUCT_QUERY = gql`
   query {
     products(
-      orderBy: updatedAt_DESC
-      where: { id_contains: "${props.match.params.id}" }
+      where: { slug_contains: "${props.match.params.id}" }
     ) {
       id
       name
@@ -54,7 +52,7 @@ const Details = (props) => {
 `;
   return (
     <>
-      <Query query={PRODUCTS_QUERY}>
+      <Query query={SINGLE_PRODUCT_QUERY}>
         {({ loading, error, data }) => {
           if (loading)
             return <Styled_SiteContainer>Loading...</Styled_SiteContainer>;

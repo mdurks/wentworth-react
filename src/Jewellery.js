@@ -17,7 +17,9 @@ class Jewellery extends Component {
       query {
         products(orderBy: updatedAt_DESC) {
           id
+          slug
           name
+          productType
           price
           description
           createdAt

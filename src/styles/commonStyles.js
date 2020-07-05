@@ -28,6 +28,10 @@ export const Styled_SiteContainer = styled.section`
       display: flex;
       flex-flow: row wrap;
 
+      > a:hover {
+        text-decoration: none;
+      }
+
       @media (min-width: 768px) {
         > a {
           display: inline-block;
@@ -39,7 +43,6 @@ export const Styled_SiteContainer = styled.section`
 
           :hover {
             background-color: hsla(0, 0%, 93%, 1);
-            text-decoration: none;
           }
 
           :nth-child(odd) {
