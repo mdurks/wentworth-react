@@ -4,8 +4,6 @@ import gql from "graphql-tag";
 import styled from "styled-components";
 import { Styled_SiteContainer } from "./styles/commonStyles";
 
-document.title = "About Wentworth Jewels";
-
 const Styled_CMScontent = styled.div`
   img {
     height: auto;
@@ -23,7 +21,10 @@ const ABOUT_QUERY = gql`
 `;
 
 class About extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    document.title = "About Wentworth Jewels";
+    document.description = "Description for About Wentworth Jewels";
+  }
 
   render() {
     return (

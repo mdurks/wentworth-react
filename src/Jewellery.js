@@ -4,6 +4,27 @@ import gql from "graphql-tag";
 import Product from "./components/Product";
 import Styled_SiteContainer from "./styles/commonStyles";
 
+const PRODUCTS_QUERY = gql`
+  query {
+    products(orderBy: updatedAt_DESC) {
+      id
+      slug
+      name
+      productType
+      price
+      description
+      createdAt
+      image {
+        id
+        url
+        handle
+        width
+        height
+      }
+    }
+  }
+`;
+
 class Jewellery extends Component {
   constructor(props) {
     super(props);
@@ -14,30 +35,10 @@ class Jewellery extends Component {
 
   componentDidMount() {
     document.title = "Jewellery Wentworth Jewels";
+    document.description = "Description for jewellery with Wentworth Jewels";
   }
 
   render() {
-    const PRODUCTS_QUERY = gql`
-      query {
-        products(orderBy: updatedAt_DESC) {
-          id
-          slug
-          name
-          productType
-          price
-          description
-          createdAt
-          image {
-            id
-            url
-            handle
-            width
-            height
-          }
-        }
-      }
-    `;
-
     return (
       <>
         <Query query={PRODUCTS_QUERY}>
