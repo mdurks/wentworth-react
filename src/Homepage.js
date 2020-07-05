@@ -6,6 +6,8 @@ import GraphImg from "graphcms-image";
 import styled from "styled-components";
 import Styled_SiteContainer from "./styles/commonStyles";
 
+document.title = "Wentworth Jewels Homepage";
+
 const WELCOME_QUERY = gql`
   query {
     welcomes {

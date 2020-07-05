@@ -12,6 +12,10 @@ class Jewellery extends Component {
     };
   }
 
+  componentDidMount() {
+    document.title = "Jewellery Wentworth Jewels";
+  }
+
   render() {
     const PRODUCTS_QUERY = gql`
       query {

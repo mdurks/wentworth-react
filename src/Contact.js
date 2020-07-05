@@ -4,6 +4,8 @@ import gql from "graphql-tag";
 
 import Styled_SiteContainer from "./styles/commonStyles";
 
+document.title = "Contact Wentworth Jewels";
+
 const CONTACT_QUERY = gql`
   query {
     contacts {
