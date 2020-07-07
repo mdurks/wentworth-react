@@ -1,75 +1,29 @@
 import React, { Component } from "react";
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
-import Product from "./components/Product";
+import { Link, NavLink } from "react-router-dom";
+import styled from "styled-components";
 import Styled_SiteContainer from "./styles/commonStyles";
 
-const PRODUCTS_QUERY = gql`
-  query {
-    products(orderBy: updatedAt_DESC) {
-      id
-      slug
-      name
-      productType
-      price
-      description
-      createdAt
-      image {
-        id
-        url
-        handle
-        width
-        height
-      }
-    }
-  }
+const StyledLink = styled(Link)`
+  display: block;
+  margin: 0 0 10px;
+  padding: 15px;
+  background-color: hsla(0, 0%, 98%, 1);
 `;
 
-class Jewellery extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cartitems: [],
-    };
-  }
+const Jewellery = () => {
+  document.title = "Jewellery Wentworth Jewels";
+  document.description = "Description for jewellery with Wentworth Jewels";
 
-  componentDidMount() {
-    document.title = "Jewellery Wentworth Jewels";
-    document.description = "Description for jewellery with Wentworth Jewels";
-  }
-
-  render() {
-    return (
-      <>
-        <Query query={PRODUCTS_QUERY}>
-          {({ loading, error, data }) => {
-            if (loading)
-              return (
-                <Styled_SiteContainer>
-                  Fetching products...
-                </Styled_SiteContainer>
-              );
-            if (error)
-              return (
-                <Styled_SiteContainer>
-                  Error fetching products
-                </Styled_SiteContainer>
-              );
-
-            const items = data.products;
-            console.log(items);
-
-            return (
-              <Styled_SiteContainer productFlexList>
-                {items.map((item) => (
-                  <Product key={item.id} product={item} />
-                ))}
-              </Styled_SiteContainer>
-            );
-          }}
-        </Query>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Styled_SiteContainer>
+        <StyledLink to="/jewellery/rings/">Rings</StyledLink>
+        <StyledLink to="/jewellery/earrings/">Earrings</StyledLink>
+        <StyledLink to="/jewellery/necklaces/">Necklaces</StyledLink>
+        <StyledLink to="/jewellery/bracelets/">Bracelets</StyledLink>
+        {/* <StyledLink to="/jewellery/others/">Other</StyledLink> */}
+      </Styled_SiteContainer>
+    </>
+  );
+};
 export default Jewellery;
