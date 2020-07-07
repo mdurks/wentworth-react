@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Styled_SiteContainer from "../styles/commonStyles";
+import { Styled_SiteContainer } from "../styles/commonStyles";
 
 const Styled_MainFooter = styled.footer`
   border: 4px solid white;

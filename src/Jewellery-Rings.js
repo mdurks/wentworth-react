@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Product from "./components/Product";
-import Styled_SiteContainer from "./styles/commonStyles";
+import { Styled_SiteContainer } from "./styles/commonStyles";
 
 const PRODUCTS_QUERY = gql`
   query {
@@ -62,7 +62,11 @@ class Jewellery extends Component {
             return (
               <Styled_SiteContainer productFlexList>
                 {items.map((item) => (
-                  <Product key={item.id} product={item} />
+                  <Product
+                    key={item.id}
+                    category="jewellery/rings" // this forms part of the URL
+                    product={item}
+                  />
                 ))}
               </Styled_SiteContainer>
             );

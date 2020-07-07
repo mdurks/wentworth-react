@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
-import Styled_SiteContainer from "../styles/commonStyles";
+import { Styled_SiteContainer } from "../styles/commonStyles";
 
 const Wentworth_Crest = require("../img/wentworth_symbol.png");
 

@@ -16,49 +16,50 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/about" component={loadable(() => import("./About"))} />
+
+          <Route
+            path="/jewellery/rings/:id"
+            component={loadable(() => import("./Details"))}
+          />
           <Route
             path="/jewellery/rings/"
             component={loadable(() => import("./Jewellery-Rings"))}
           />
-          <Route
-            path="/jewellery/ring/:id"
-            component={loadable(() => import("./Details"))}
-          />
 
-          <Route
-            path="/jewellery/earrings/"
-            component={loadable(() => import("./Jewellery-Earrings"))}
-          />
           <Route
             path="/jewellery/earring/:id"
             component={loadable(() => import("./Details"))}
           />
-
           <Route
-            path="/jewellery/necklaces/"
-            component={loadable(() => import("./Jewellery-Necklaces"))}
+            path="/jewellery/earrings/"
+            component={loadable(() => import("./Jewellery-Earrings"))}
           />
+
           <Route
             path="/jewellery/necklace/:id"
             component={loadable(() => import("./Details"))}
           />
-
           <Route
-            path="/jewellery/bracelets/"
-            component={loadable(() => import("./Jewellery-Bracelets"))}
+            path="/jewellery/necklaces/"
+            component={loadable(() => import("./Jewellery-Necklaces"))}
           />
+
           <Route
             path="/jewellery/bracelet/:id"
             component={loadable(() => import("./Details"))}
           />
-
           <Route
-            path="/jewellery/others/"
-            component={loadable(() => import("./Jewellery-Others"))}
+            path="/jewellery/bracelets/"
+            component={loadable(() => import("./Jewellery-Bracelets"))}
           />
+
           <Route
             path="/jewellery/other/:id"
             component={loadable(() => import("./Details"))}
+          />
+          <Route
+            path="/jewellery/others/"
+            component={loadable(() => import("./Jewellery-Others"))}
           />
           <Route
             path="/jewellery"
