@@ -94,15 +94,15 @@ const MainNav = () => (
         Home
       </StyledLink>{" "}
       |{" "}
-      <StyledLink activeClassName="is-active" to="/about">
+      <StyledLink activeClassName="is-active" to="/about/">
         About
       </StyledLink>{" "}
       |{" "}
-      <StyledLink activeClassName="is-active" to="/jewellery">
+      <StyledLink activeClassName="is-active" to="/jewellery/">
         Jewellery
       </StyledLink>{" "}
       |{" "}
-      <StyledLink activeClassName="is-active" to="/contact">
+      <StyledLink activeClassName="is-active" to="/contact/">
         Contact
       </StyledLink>
     </Styled_SiteContainer>
