@@ -32,15 +32,33 @@ const Styled_BurgerBtn = styled.button`
     display: block;
     background-color: white;
     pointer-events: none;
+    transition: all ease 0.3s;
+  }
+
+  div {
+    .openMobileMenu & {
+      background: none;
+    }
   }
 
   div:before {
     top: -7px;
     content: "";
+
+    .openMobileMenu & {
+      top: -1px;
+      transform: rotate(45deg);
+    }
   }
+
   div:after {
     top: 4px;
     content: "";
+
+    .openMobileMenu & {
+      top: -4px;
+      transform: rotate(-45deg);
+    }
   }
 `;
 
@@ -57,6 +75,7 @@ const Styled_Nav = styled.nav`
   opacity: 0;
   z-index: 10;
   pointer-events: none;
+  overflow: scroll;
 
   .openMobileMenu & {
     /* display: block; */
@@ -221,7 +240,8 @@ class MainNav extends Component {
     let mainNav = document.getElementById("mainNav");
     let subMenuParents = document.getElementsByClassName("hasSubMenu");
 
-    htmlTag.classList.add("openMobileMenu");
+    // Toggle this in dev to keep menu open
+    // htmlTag.classList.add("openMobileMenu");
 
     mobileBurgerBtn.addEventListener("click", () => {
       htmlTag.classList.toggle("openMobileMenu");
