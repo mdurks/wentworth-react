@@ -5,6 +5,10 @@ import { Styled_SiteContainer } from "../styles/commonStyles";
 
 const Wentworth_Crest = require("../img/wentworth_symbol.png");
 
+const Styled_HeaderNav = styled.div`
+  text-align: left;
+`;
+
 const StyledLink = styled(NavLink)`
   display: inline-block;
   text-align: center;
@@ -50,6 +54,10 @@ const Styled_WentworthTitle = styled.span`
 
 const MainNav = () => (
   <header>
+    <Styled_SiteContainer>
+      <Link to="/contact/">Contact</Link> | <Link to="/contact/">Services</Link>{" "}
+      | <Link to="/contact/">Blog</Link>
+    </Styled_SiteContainer>
     <Styled_SiteContainer textCenter>
       <StyledLink exact={true} to="/">
         <Styled_WentworthSymbolImg

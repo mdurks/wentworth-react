@@ -90,6 +90,7 @@ const Styled_Nav = styled.nav`
     background: none;
     opacity: 1;
     pointer-events: all;
+    overflow: visible;
   }
 `;
 
@@ -112,27 +113,31 @@ const Styled_ToplevelItem = styled.li`
   border-bottom: 1px solid black;
 
   @media (min-width: 768px) {
+    position: initial;
     display: inline-block;
+    border: none;
   }
   /* Desktop: Hovering on this item shows the Styled_SubMenuContainer */
   /* Mobile: We need a chevron to communicate this is a dropdown */
 
-  &.hasSubMenu :after {
-    content: "";
-    position: absolute;
-    top: 22px;
-    right: 20px;
-    width: 15px;
-    height: 15px;
-    border: 4px solid black;
-    border-left: none;
-    border-top: none;
-    transform: rotate(45deg);
-    transition: all ease 0.3s;
-  }
-  &.hasSubMenu.openSubMenu :after {
-    top: 26px;
-    transform: rotate(-135deg);
+  @media (max-width: 767px) {
+    &.hasSubMenu :after {
+      content: "";
+      position: absolute;
+      top: 22px;
+      right: 20px;
+      width: 15px;
+      height: 15px;
+      border: 4px solid black;
+      border-left: none;
+      border-top: none;
+      transform: rotate(45deg);
+      transition: all ease 0.3s;
+    }
+    &.hasSubMenu.openSubMenu :after {
+      top: 26px;
+      transform: rotate(-135deg);
+    }
   }
 `;
 
@@ -268,12 +273,6 @@ class MainNav extends Component {
         <Styled_Nav id="mainNav">
           <Styled_SiteContainer mainNav>
             <Styled_MainNav>
-              <Styled_ToplevelItem>
-                <StyledLink activeClassName="is-active" exact={true} to="/">
-                  Home
-                </StyledLink>
-              </Styled_ToplevelItem>
-
               <Styled_ToplevelItem className="hasSubMenu">
                 <StyledLink activeClassName="is-active" to="/engagement/">
                   Engagement
@@ -365,14 +364,26 @@ class MainNav extends Component {
               </Styled_ToplevelItem>
 
               <Styled_ToplevelItem>
-                <StyledLink activeClassName="is-active" to="/about/">
-                  About
+                <StyledLink activeClassName="is-active" to="/contact/">
+                  Collections
                 </StyledLink>
               </Styled_ToplevelItem>
 
               <Styled_ToplevelItem>
                 <StyledLink activeClassName="is-active" to="/contact/">
-                  Contact
+                  Gifts
+                </StyledLink>
+              </Styled_ToplevelItem>
+
+              <Styled_ToplevelItem>
+                <StyledLink activeClassName="is-active" to="/contact/">
+                  Time piece
+                </StyledLink>
+              </Styled_ToplevelItem>
+
+              <Styled_ToplevelItem>
+                <StyledLink activeClassName="is-active" to="/about/">
+                  Heritage
                 </StyledLink>
               </Styled_ToplevelItem>
             </Styled_MainNav>
