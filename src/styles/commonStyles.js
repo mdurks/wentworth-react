@@ -6,12 +6,16 @@ export const Styled_SiteContainer = styled.section`
   max-width: 1060px;
   margin: auto;
   padding: 15px;
-  overflow: auto;
 
   ${(props) =>
     props.mainNav &&
     css`
-      padding: 15px 0 30px;
+      padding: 0 0 30px;
+    `};
+
+  ${(props) =>
+    props.textCenter &&
+    css`
       text-align: center;
     `};
 

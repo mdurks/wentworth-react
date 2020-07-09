@@ -1,60 +1,133 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Styled_SiteContainer } from "../styles/commonStyles";
 
-const Wentworth_Crest = require("../img/wentworth_symbol.png");
+const Styled_BurgerBtn = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 40px;
+  padding: 12px 11px;
+  background-color: #000;
+  border-radius: 4px;
+  border: none;
+  text-indent: -9999px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  z-index: 15;
 
-const Styled_WentworthSymbolImg = styled.div`
-  margin: 20px auto 0;
-  width: 60px;
-
-  @media only screen and (min-width: 767px) {
-    width: 100px;
+  @media (min-width: 768px) {
+    display: none;
   }
 
-  img {
-    width: 100%;
+  div:before,
+  div:after,
+  div {
+    position: relative;
+    top: 0;
+    height: 3px;
+    display: block;
+    background-color: white;
+    pointer-events: none;
+  }
+
+  div:before {
+    top: -7px;
+    content: "";
+  }
+  div:after {
+    top: 4px;
+    content: "";
   }
 `;
 
-const Styled_WentworthTitle = styled.span`
-  display: inline-block;
-  text-transform: uppercase;
-  font-family: "Playfair Display", serif;
-  font-size: 25px;
-  line-height: 25px;
+const Styled_Nav = styled.nav`
+  /* display: none; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 90px 0 0;
+  background-color: hsl(53, 90%, 87%);
+  transition: all ease 0.4s;
+  opacity: 0;
+  z-index: 10;
+  pointer-events: none;
 
-  :first-letter {
-    font-size: 32px;
+  .openMobileMenu & {
+    /* display: block; */
+    opacity: 1;
+    pointer-events: all;
   }
 
-  :first-of-type {
-    margin-right: 7px;
+  @media (min-width: 768px) {
+    position: relative;
+    display: block;
+    padding: 0;
+    background: none;
+    opacity: 1;
+    pointer-events: all;
   }
+`;
 
-  @media only screen and (min-width: 767px) {
-    font-size: 40px;
-    line-height: 40px;
+const Styled_MainNav = styled.ul`
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 
-    :first-letter {
-      font-size: 50px;
-    }
+  @media (min-width: 768px) {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    border-bottom: 2px dotted #dedede;
+  }
+`;
+
+const Styled_ToplevelItem = styled.li`
+  position: relative;
+  border-bottom: 1px solid black;
+
+  @media (min-width: 768px) {
+    display: inline-block;
+  }
+  /* Desktop: Hovering on this item shows the Styled_SubMenuContainer */
+  /* Mobile: We need a chevron to communicate this is a dropdown */
+
+  &.hasSubMenu :after {
+    content: "";
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    width: 15px;
+    height: 15px;
+    border: 4px solid black;
+    border-left: none;
+    border-top: none;
+    transform: rotate(45deg);
+    transition: all ease 0.3s;
+  }
+  &.hasSubMenu.openSubMenu :after {
+    top: 26px;
+    transform: rotate(-135deg);
   }
 `;
 
 const StyledLink = styled(NavLink)`
-  display: inline-block;
-  margin-top: 10px;
-  padding: 0 3px;
+  display: block;
+  padding: 20px;
   font-size: 15px;
   font-family: "Playfair Display", serif;
   text-transform: uppercase;
   font-weight: bold;
 
   @media (min-width: 768px) {
-    margin-top: 20px;
-    padding: 0 5%;
+    display: inline-block;
+    padding: 20px 0;
     font-size: 18px;
   }
 
@@ -62,51 +135,232 @@ const StyledLink = styled(NavLink)`
     text-decoration: none;
   }
 
-  &.is-active:after {
-    content: "";
-    display: block;
-    position: relative;
-    left: 0;
-    bottom: -4px;
-    width: 100%;
-    height: 2px;
-    background-color: #000;
+  .hasSubMenu & {
+    display: inline-block;
+  }
+
+  /* Underline that appears on desktop */
+  @media (min-width: 768px) {
+    &.is-active:after {
+      content: "";
+      display: block;
+      position: relative;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+    }
   }
 `;
 
-const MainNav = () => (
-  <header>
-    <Styled_SiteContainer mainNav>
-      <NavLink exact={true} to="/">
-        <Styled_WentworthSymbolImg>
-          <img
-            srcSet={Wentworth_Crest.srcSet}
-            src={Wentworth_Crest.src}
-            alt="Wentworths Crest"
-          />
-        </Styled_WentworthSymbolImg>
-        <p>
-          <Styled_WentworthTitle>Wentworth</Styled_WentworthTitle>
-          <Styled_WentworthTitle>Jewels</Styled_WentworthTitle>
-        </p>
-      </NavLink>
-      <StyledLink activeClassName="is-active" exact={true} to="/">
-        Home
-      </StyledLink>{" "}
-      |{" "}
-      <StyledLink activeClassName="is-active" to="/about/">
-        About
-      </StyledLink>{" "}
-      |{" "}
-      <StyledLink activeClassName="is-active" to="/jewellery/">
-        Jewellery
-      </StyledLink>{" "}
-      |{" "}
-      <StyledLink activeClassName="is-active" to="/contact/">
-        Contact
-      </StyledLink>
-    </Styled_SiteContainer>
-  </header>
-);
+const Styled_SubMenuContainer = styled.div`
+  display: none;
+  text-align: left;
+  background-color: hsl(53, 100%, 92%);
+
+  @media (min-width: 768px) {
+    position: absolute;
+    width: 100%;
+    top: 65px;
+    left: 0;
+    padding: 20px;
+    border-top: 2px dotted #dedede;
+    z-index: 10;
+  }
+
+  .openSubMenu & {
+    display: block;
+  }
+
+  > p {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+      margin: 0 0 10px 20px;
+    }
+  }
+
+  ul > li {
+    flex: 1 0 auto;
+
+    a {
+      padding: 20px;
+      display: block;
+
+      :hover {
+        text-decoration: none;
+        background-color: hsl(53, 100%, 85%);
+      }
+    }
+  }
+
+  > ul {
+    list-style-type: none;
+    margin: 0 0 20px;
+    padding: 0;
+
+    @media (min-width: 768px) {
+      display: flex;
+      margin: 0;
+    }
+  }
+
+  @media (min-width: 768px) and (hover: hover) {
+    ${Styled_ToplevelItem}:hover & {
+      display: block;
+    }
+  }
+`;
+
+class MainNav extends Component {
+  componentDidMount() {
+    let mobileBurgerBtn = document.getElementById("mobileBurgerBtn");
+    let htmlTag = document.documentElement;
+    let mainNav = document.getElementById("mainNav");
+    let subMenuParents = document.getElementsByClassName("hasSubMenu");
+
+    htmlTag.classList.add("openMobileMenu");
+
+    mobileBurgerBtn.addEventListener("click", () => {
+      htmlTag.classList.toggle("openMobileMenu");
+    });
+
+    mainNav.addEventListener("click", (e) => {
+      let el = e.target;
+
+      if (el.matches("a")) {
+        htmlTag.classList.remove("openMobileMenu");
+      }
+      if (el.matches(".hasSubMenu")) {
+        el.classList.toggle("openSubMenu");
+      }
+    });
+  }
+
+  render() {
+    return (
+      <>
+        <Styled_BurgerBtn id="mobileBurgerBtn">
+          <div></div>
+        </Styled_BurgerBtn>
+        <Styled_Nav id="mainNav">
+          <Styled_SiteContainer mainNav>
+            <Styled_MainNav>
+              <Styled_ToplevelItem>
+                <StyledLink activeClassName="is-active" exact={true} to="/">
+                  Home
+                </StyledLink>
+              </Styled_ToplevelItem>
+
+              <Styled_ToplevelItem className="hasSubMenu">
+                <StyledLink activeClassName="is-active" to="/engagement/">
+                  Engagement
+                </StyledLink>
+                <Styled_SubMenuContainer>
+                  <p>Engagement:</p>
+                  <ul>
+                    <li>
+                      <Link to="/engagement/classic-diamond-ring/">
+                        Classic diamond ring
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/engagement/coloured/">Coloured</Link>
+                    </li>
+                    <li>
+                      <Link to="/engagement/trilogy/">Trilogy</Link>
+                    </li>
+                    <li>
+                      <Link to="/engagement/wedding band/">Wedding band</Link>
+                    </li>
+                    <li>
+                      <Link to="/engagement/Rejuvenated rings/">
+                        Rejuvenated rings
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/engagement/bespoke design/">
+                        Bespoke design
+                      </Link>
+                    </li>
+                  </ul>
+                </Styled_SubMenuContainer>
+              </Styled_ToplevelItem>
+
+              <Styled_ToplevelItem className="hasSubMenu">
+                <StyledLink activeClassName="is-active" to="/weddings/">
+                  Weddings
+                </StyledLink>
+                <Styled_SubMenuContainer>
+                  <p>Weddings:</p>
+                  <ul>
+                    <li>
+                      <Link to="/weddings/ring/">Ring</Link>
+                    </li>
+                    <li>
+                      <Link to="/weddings/gifts/">Gifts</Link>
+                    </li>
+                    <li>
+                      <Link to="/weddings/earring/">Earring</Link>
+                    </li>
+                    <li>
+                      <Link to="/weddings/necklace/">Necklace</Link>
+                    </li>
+                    <li>
+                      <Link to="/weddings/tiara/">Tiara</Link>
+                    </li>
+                    <li>
+                      <Link to="/weddings/bespoke design/">Bespoke design</Link>
+                    </li>
+                    <li>
+                      <Link to="/weddings/eternity ring/">Eternity ring</Link>
+                    </li>
+                  </ul>
+                </Styled_SubMenuContainer>
+              </Styled_ToplevelItem>
+
+              <Styled_ToplevelItem className="hasSubMenu">
+                <StyledLink activeClassName="is-active" to="/jewellery/">
+                  Jewellery
+                </StyledLink>
+                <Styled_SubMenuContainer>
+                  <p>Jewellery:</p>
+                  <ul>
+                    <li>
+                      <Link to="/jewellery/rings/">Rings</Link>
+                    </li>
+                    <li>
+                      <Link to="/jewellery/earrings/">Earrings</Link>
+                    </li>
+                    <li>
+                      <Link to="/jewellery/necklaces/">Necklaces</Link>
+                    </li>
+                    <li>
+                      <Link to="/jewellery/bracelets/">Bracelets</Link>
+                    </li>
+                  </ul>
+                </Styled_SubMenuContainer>
+              </Styled_ToplevelItem>
+
+              <Styled_ToplevelItem>
+                <StyledLink activeClassName="is-active" to="/about/">
+                  About
+                </StyledLink>
+              </Styled_ToplevelItem>
+
+              <Styled_ToplevelItem>
+                <StyledLink activeClassName="is-active" to="/contact/">
+                  Contact
+                </StyledLink>
+              </Styled_ToplevelItem>
+            </Styled_MainNav>
+          </Styled_SiteContainer>
+        </Styled_Nav>
+      </>
+    );
+  }
+}
 
 export default MainNav;

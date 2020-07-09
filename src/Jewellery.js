@@ -8,6 +8,11 @@ const StyledLink = styled(Link)`
   margin: 0 0 10px;
   padding: 15px;
   background-color: hsla(0, 0%, 98%, 1);
+
+  :hover {
+    text-decoration: none;
+    background-color: hsla(0, 0%, 94%, 1);
+  }
 `;
 
 const Jewellery = () => {

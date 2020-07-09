@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import loadable from "@loadable/component";
 
+import MainHeader from "./components/MainHeader";
 import MainNav from "./components/MainNav";
 import "./style.css";
 
@@ -11,6 +12,7 @@ import MainFooter from "./components/MainFooter";
 const App = () => {
   return (
     <BrowserRouter>
+      <MainHeader />
       <MainNav />
       <main className="main">
         <Switch>
