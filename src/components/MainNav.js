@@ -68,7 +68,7 @@ const Styled_Nav = styled.nav`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 90px 0 0;
   background-color: hsl(53, 90%, 87%);
   transition: all ease 0.4s;
@@ -87,6 +87,7 @@ const Styled_Nav = styled.nav`
     position: relative;
     display: block;
     padding: 0;
+    height: auto;
     background: none;
     opacity: 1;
     pointer-events: all;
