@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Styled_SiteContainer } from "../styles/commonStyles";
 
-const Wentworth_Crest = require("../img/wentworth_symbol.png");
+// const Wentworth_Crest = require("../img/wentworth_symbol.png");
 
 const Styled_HeaderNav = styled.div`
   text-align: left;
@@ -14,15 +14,21 @@ const StyledLink = styled(NavLink)`
   text-align: center;
 `;
 
-const Styled_WentworthSymbolImg = styled.img`
+const Styled_WentworthSymbolImg = styled.div`
   display: block;
   margin: 10px auto;
   width: 60px;
-  height: auto;
+  height: 68px;
+  background-image: url("../img/wentworth_symbol_small.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 
   @media only screen and (min-width: 767px) {
+    background-image: url("../img/wentworth_symbol_large.png");
     margin: 20px auto;
     width: 100px;
+    height: 115px;
   }
 `;
 
@@ -60,11 +66,7 @@ const MainNav = () => (
     </Styled_SiteContainer>
     <Styled_SiteContainer textCenter>
       <StyledLink exact={true} to="/">
-        <Styled_WentworthSymbolImg
-          srcSet={Wentworth_Crest.srcSet}
-          src={Wentworth_Crest.src}
-          alt="Wentworths Crest"
-        />
+        <Styled_WentworthSymbolImg />
         <Styled_WentworthTitle>Wentworth</Styled_WentworthTitle>
         <Styled_WentworthTitle>Jewels</Styled_WentworthTitle>
       </StyledLink>
