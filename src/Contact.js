@@ -34,20 +34,21 @@ const Contact = () => {
                 <h1>{items.heroHeading}</h1>
                 <p>{items.firstIntroMessage}</p>
 
-                <form name="contact" netlify>
+                <form name="contact" method="post">
+                  <input type="hidden" name="form-name" value="contact" />
                   <p>
                     <label>
-                      Name <input type="text" name="name" />
+                      Your Name: <input type="text" name="name" />
                     </label>
                   </p>
                   <p>
                     <label>
-                      Email <input type="email" name="email" />
+                      Your Email: <input type="email" name="email" />
                     </label>
                   </p>
                   <p>
                     <label>
-                      Message <input type="message" name="message" />
+                      Message: <textarea name="message"></textarea>
                     </label>
                   </p>
                   <p>
