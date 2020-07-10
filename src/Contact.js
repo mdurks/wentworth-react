@@ -33,6 +33,27 @@ const Contact = () => {
               <Styled_SiteContainer>
                 <h1>{items.heroHeading}</h1>
                 <p>{items.firstIntroMessage}</p>
+
+                <form name="contact" netlify>
+                  <p>
+                    <label>
+                      Name <input type="text" name="name" />
+                    </label>
+                  </p>
+                  <p>
+                    <label>
+                      Email <input type="email" name="email" />
+                    </label>
+                  </p>
+                  <p>
+                    <label>
+                      Message <input type="message" name="message" />
+                    </label>
+                  </p>
+                  <p>
+                    <button type="submit">Send</button>
+                  </p>
+                </form>
               </Styled_SiteContainer>
             </>
           );
