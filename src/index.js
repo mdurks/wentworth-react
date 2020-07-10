@@ -8,7 +8,8 @@ import App from "./App";
 
 const client = new ApolloClient({
   uri:
-    "https://api-eu-central-1.graphcms.com/v2/ckbutikwk031a01xy9crkcskv/master",
+    "https://api-eu-central-1.graphcms.com/v2/ckcgmjdl73ds501xrercafl4c/master",
+  // "https://api-eu-central-1.graphcms.com/v2/ckbutikwk031a01xy9crkcskv/master",
 });
 
 const renderApp = () => {

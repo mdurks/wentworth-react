@@ -60,6 +60,8 @@ const Details = (props) => {
       }
     }
     `;
+  console.log("SINGLE_PRODUCT_QUERY: ", SINGLE_PRODUCT_QUERY);
+
   return (
     <>
       <Query query={SINGLE_PRODUCT_QUERY}>

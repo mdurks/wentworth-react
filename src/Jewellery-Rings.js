@@ -91,7 +91,7 @@ class Jewellery extends Component {
 
             return (
               <>
-                {/* Render out the jewellery filter types from the arrays above */}
+                {/* Filter types for jewellery from the arrays above */}
                 <Styled_SiteContainer>
                   <fieldset>
                     <legend>Gemstones:</legend>
