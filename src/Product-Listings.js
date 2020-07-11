@@ -5,13 +5,19 @@ import Product from "./components/Product";
 import Styled_SiteContainer from "./styles/commonStyles";
 
 const Product_Listing = (props) => {
-  console.log("productType: ", props.match.params.id);
+  let categoryType = props.match.url.split("/")[1];
+  let productType = props.match.params.id;
+
+  console.log("categoryType: ", categoryType);
+  console.log("productType: ", productType);
+
   const PRODUCTS_QUERY = gql`
     query {
-      products(orderBy: updatedAt_DESC, where: { productType: ${props.match.params.id} }) {
+      products(orderBy: updatedAt_DESC, where: {productType: ${productType}, AND: {categoryType_contains_some: ${categoryType}}}) {
         id
         slug
         name
+        categoryType
         productType
         price
         description
@@ -27,7 +33,7 @@ const Product_Listing = (props) => {
     }
   `;
 
-  document.title = `Jewellery - ${props.match.params.id} - Wentworth Jewels`;
+  document.title = `${categoryType} - ${productType} - Wentworth Jewels`;
   document.description = "Description for jewellery with Wentworth Jewels";
 
   return (
@@ -46,7 +52,12 @@ const Product_Listing = (props) => {
             );
 
           const items = data.products;
-          console.log("items: ", items);
+          console.log("Product Listing: ", items, "length: ", items.length);
+
+          let noContentMessage;
+          if (!items.length) {
+            noContentMessage = "There are no items found.";
+          }
 
           return (
             <>
@@ -54,10 +65,11 @@ const Product_Listing = (props) => {
                 {items.map((item) => (
                   <Product
                     key={item.id}
-                    category={`jewellery/${props.match.params.id}`} // this forms part of the URL
+                    category={`${categoryType}/${productType}`} // this forms part of the URL
                     product={item}
                   />
                 ))}
+                {noContentMessage}
               </Styled_SiteContainer>
             </>
           );

@@ -60,7 +60,6 @@ const Details = (props) => {
       }
     }
     `;
-  console.log("SINGLE_PRODUCT_QUERY: ", SINGLE_PRODUCT_QUERY);
 
   return (
     <>
@@ -74,7 +73,7 @@ const Details = (props) => {
             );
 
           const product = data.products[0];
-          console.log("Details data: ", product);
+          console.log("Details: ", product);
 
           document.title = `${product.name} - ${product.productType} - Wentworth Jewels`;
           document.description = product.description;

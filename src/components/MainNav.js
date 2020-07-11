@@ -282,9 +282,7 @@ class MainNav extends Component {
                   <p>Engagement:</p>
                   <ul>
                     <li>
-                      <Link to="/engagement/classic-diamond-ring/">
-                        Classic diamond ring
-                      </Link>
+                      <Link to="/engagement/rings/">Rings</Link>
                     </li>
                     <li>
                       <Link to="/engagement/coloured/">Coloured</Link>
@@ -293,10 +291,10 @@ class MainNav extends Component {
                       <Link to="/engagement/trilogy/">Trilogy</Link>
                     </li>
                     <li>
-                      <Link to="/engagement/wedding band/">Wedding band</Link>
+                      <Link to="/engagement/wedding-band/">Wedding band</Link>
                     </li>
                     <li>
-                      <Link to="/engagement/Rejuvenated rings/">
+                      <Link to="/engagement/rejuvenated-rings/">
                         Rejuvenated rings
                       </Link>
                     </li>
@@ -317,25 +315,27 @@ class MainNav extends Component {
                   <p>Weddings:</p>
                   <ul>
                     <li>
-                      <Link to="/weddings/ring/">Ring</Link>
+                      <Link to="/weddings/rings/">Rings</Link>
+                    </li>
+                    <li>
+                      <Link to="/weddings/earrings/">Earrings</Link>
+                    </li>
+                    <li>
+                      <Link to="/weddings/necklaces/">Necklaces</Link>
+                    </li>
+                    <li>
+                      <Link to="/weddings/tiaras/">Tiaras</Link>
                     </li>
                     <li>
                       <Link to="/weddings/gifts/">Gifts</Link>
                     </li>
                     <li>
-                      <Link to="/weddings/earring/">Earring</Link>
+                      <Link to="/weddings/bespoke-design/">
+                        Bespoke designs
+                      </Link>
                     </li>
                     <li>
-                      <Link to="/weddings/necklace/">Necklace</Link>
-                    </li>
-                    <li>
-                      <Link to="/weddings/tiara/">Tiara</Link>
-                    </li>
-                    <li>
-                      <Link to="/weddings/bespoke design/">Bespoke design</Link>
-                    </li>
-                    <li>
-                      <Link to="/weddings/eternity ring/">Eternity ring</Link>
+                      <Link to="/weddings/eternity-rings/">Eternity rings</Link>
                     </li>
                   </ul>
                 </Styled_SubMenuContainer>
