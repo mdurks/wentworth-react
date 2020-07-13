@@ -6,18 +6,8 @@ import GraphImg from "graphcms-image";
 import Form_Enquire from "./components/Form-Enquire";
 import Form_Viewing from "./components/Form-Viewing";
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Styled_SiteContainer from "./styles/commonStyles";
-
-const Styled_ProductItem = styled.div`
-  margin-bottom: 40px;
-  padding-bottom: 30px;
-  border-bottom: 1px dashed #bdbdbd;
-
-  @media (min-width: 768px) {
-    border: none;
-  }
-`;
 
 const Styled_Img = styled.div`
   @media (min-width: 768px) {
@@ -36,6 +26,28 @@ const Styled_CMScontent = styled.div`
   img {
     height: auto;
   }
+`;
+
+const Styled_btn = styled.button`
+  display: block;
+  margin: 25px auto 0;
+  padding: 15px 20px;
+  width: 75%;
+
+  @media (min-width: 768px) {
+    display: inline-block;
+    margin: 0 20px 0 0;
+    padding: 15px 20px;
+    width: 150px;
+  }
+
+  ${(props) =>
+    props.printBtn &&
+    css`
+      @media (max-width: 767px) {
+        display: none;
+      }
+    `};
 `;
 
 const Details = (props) => {
@@ -104,6 +116,9 @@ const Details = (props) => {
                 <Styled_CMScontent>
                   {RenderRichText()}
                   <p>£{product.price}</p>
+                  <p>
+                    <Styled_btn>Add to cart</Styled_btn>
+                  </p>
                 </Styled_CMScontent>
 
                 <p>
@@ -117,12 +132,31 @@ const Details = (props) => {
                   and speak to an advisor.
                 </p>
                 <p>
-                  <button
-                    style={{ padding: "10px 20px" }}
-                    onClick={window.print}
+                  <Styled_btn
+                    onClick={() => {
+                      document.documentElement.classList.remove("showViewing");
+                      document.documentElement.classList.toggle("showEnquire");
+                      document.documentElement.classList.toggle(
+                        "pageNoScrollY"
+                      );
+                    }}
                   >
+                    Enquire
+                  </Styled_btn>
+                  <Styled_btn
+                    onClick={() => {
+                      document.documentElement.classList.remove("showEnquire");
+                      document.documentElement.classList.toggle("showViewing");
+                      document.documentElement.classList.toggle(
+                        "pageNoScrollY"
+                      );
+                    }}
+                  >
+                    Book a viewing
+                  </Styled_btn>
+                  <Styled_btn printBtn onClick={window.print}>
                     Print
-                  </button>
+                  </Styled_btn>
                 </p>
                 <Form_Enquire product={product.name} />
                 <Form_Viewing product={product.name} />

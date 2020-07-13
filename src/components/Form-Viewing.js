@@ -1,6 +1,52 @@
 import React from "react";
 import styled from "styled-components";
 
+const Styled_Sidebar = styled.div`
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+  background-color: white;
+  transition: all ease 0.4s;
+  z-index: 20;
+  overflow-y: auto;
+
+  @media (min-width: 768px) {
+    box-shadow: -4px 0px 8px 0px rgba(0, 0, 0, 0.3);
+    right: -460px;
+    width: 450px;
+  }
+
+  .showViewing & {
+    right: 0;
+  }
+`;
+
+const Styled_Input = styled.input`
+  display: block;
+  margin: 10px 0 20px;
+  width: 100%;
+  padding: 10px;
+  font-family: sans-serif;
+`;
+const Styled_Textarea = styled.textarea`
+  display: block;
+  margin: 10px 0 20px;
+  width: 100%;
+  padding: 10px;
+  height: 200px;
+  font-family: sans-serif;
+`;
+
+const Styled_close = styled.button`
+  padding: 5px 10px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+`;
+
 const Styled_submitBtn = styled.button`
   padding: 10px 20px;
 `;
@@ -8,15 +54,21 @@ const Styled_submitBtn = styled.button`
 const Form_Viewing = (props) => {
   return (
     <>
-      <div
-        style={{ border: "1px solid grey", padding: "10px", marginTop: "20px" }}
-      >
+      <Styled_Sidebar>
+        <Styled_close
+          onClick={() => {
+            document.documentElement.classList.toggle("showViewing");
+            document.documentElement.classList.remove("pageNoScrollY");
+          }}
+        >
+          Close
+        </Styled_close>
         <h2>
           Book a Viewing:
           <br />
           {props.product}
         </h2>
-        <form name="Viewing" method="post" action="/">
+        <form name="Viewing" method="post">
           <input type="hidden" name="form-name" value="Viewing" />
           <input type="hidden" name="Product" value={props.product} />
           <input
@@ -24,45 +76,32 @@ const Form_Viewing = (props) => {
             name="product page"
             value={window.location.href}
           />
-          <p>
-            <label>
-              Name: <br />
-              <input type="text" name="name" />
-            </label>
-          </p>
-          <p>
-            <label>
-              Email: <br />
-              <input type="email" name="email" />
-            </label>
-          </p>
-          <p>
-            <label>
-              Phone: <br />
-              <input type="tel" name="phone" />
-            </label>
-          </p>
-          <p>
-            <label>
-              Date: <br />
-              <input type="date" name="date" />
-            </label>
-          </p>
-          <p>
-            <label>
-              How can we help with your viewing?:
-              <br />
-              <textarea name="message"></textarea>
-            </label>
-          </p>
+          <label>
+            Name:
+            <Styled_Input type="text" name="name" />
+          </label>
+          <label>
+            Email:
+            <Styled_Input type="email" name="email" />
+          </label>
+          <label>
+            Phone:
+            <Styled_Input type="tel" name="phone" />
+          </label>
+          <label>
+            Date:
+            <Styled_Input type="date" name="date" />
+          </label>
+          <label>
+            How can we help with your viewing?:
+            <Styled_Textarea name="message"></Styled_Textarea>
+          </label>
           <p>Terms & Conditions notice goes here.</p>
-          <p>
-            <Styled_submitBtn type="submit">
-              Send booking request
-            </Styled_submitBtn>
-          </p>
+          <Styled_submitBtn type="submit">
+            Send booking request
+          </Styled_submitBtn>
         </form>
-      </div>
+      </Styled_Sidebar>
     </>
   );
 };

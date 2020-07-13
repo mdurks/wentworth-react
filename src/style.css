@@ -59,8 +59,13 @@ body {
   min-height: 500px;
 }
 
-.openMobileMenu {
+.pageNoScrollY {
   overflow: hidden;
+}
+@media (min-width: 768px) {
+  .pageNoScrollY {
+    padding-right: 17px;
+  }
 }
 
 h1,

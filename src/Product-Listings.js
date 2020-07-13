@@ -35,6 +35,7 @@ const Product_Listing = (props) => {
 
   document.title = `${categoryType} - ${productType} - Wentworth Jewels`;
   document.description = "Description for jewellery with Wentworth Jewels";
+  document.documentElement.classList.remove("showEnquire", "showViewing");
 
   return (
     <>

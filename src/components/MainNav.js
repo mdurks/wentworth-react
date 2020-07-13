@@ -36,7 +36,7 @@ const Styled_BurgerBtn = styled.button`
   }
 
   div {
-    .openMobileMenu & {
+    .pageNoScrollY & {
       background: none;
     }
   }
@@ -45,7 +45,7 @@ const Styled_BurgerBtn = styled.button`
     top: -7px;
     content: "";
 
-    .openMobileMenu & {
+    .pageNoScrollY & {
       top: -1px;
       transform: rotate(45deg);
     }
@@ -55,7 +55,7 @@ const Styled_BurgerBtn = styled.button`
     top: 4px;
     content: "";
 
-    .openMobileMenu & {
+    .pageNoScrollY & {
       top: -4px;
       transform: rotate(-45deg);
     }
@@ -77,7 +77,7 @@ const Styled_Nav = styled.nav`
   pointer-events: none;
   overflow: scroll;
 
-  .openMobileMenu & {
+  .pageNoScrollY & {
     /* display: block; */
     opacity: 1;
     pointer-events: all;
@@ -247,17 +247,17 @@ class MainNav extends Component {
     let subMenuParents = document.getElementsByClassName("hasSubMenu");
 
     // Toggle this in dev to keep menu open
-    // htmlTag.classList.add("openMobileMenu");
+    // htmlTag.classList.add("pageNoScrollY");
 
     mobileBurgerBtn.addEventListener("click", () => {
-      htmlTag.classList.toggle("openMobileMenu");
+      htmlTag.classList.toggle("pageNoScrollY");
     });
 
     mainNav.addEventListener("click", (e) => {
       let el = e.target;
 
       if (el.matches("a")) {
-        htmlTag.classList.remove("openMobileMenu");
+        htmlTag.classList.remove("pageNoScrollY");
       }
       if (el.matches(".hasSubMenu")) {
         el.classList.toggle("openSubMenu");
