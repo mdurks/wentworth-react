@@ -77,21 +77,24 @@ const Form_Enquire = (props) => {
             name="product page"
             value={window.location.href}
           />
-          <label>
+          <label htmlFor="form_enquire_Name">
             Name:
-            <Styled_Input type="text" name="name" />
+            <Styled_Input type="text" id="form_enquire_Name" name="name" />
           </label>
-          <label>
+          <label htmlFor="form_enquire_Email">
             Email:
-            <Styled_Input type="email" name="email" />
+            <Styled_Input type="email" id="form_enquire_Email" name="email" />
           </label>
-          <label>
+          <label htmlFor="form_enquire_Phone">
             Phone:
-            <Styled_Input type="tel" name="phone" />
+            <Styled_Input type="tel" id="form_enquire_Phone" name="phone" />
           </label>
-          <label>
+          <label htmlFor="form_enquire_Message">
             Message:
-            <Styled_Textarea name="message"></Styled_Textarea>
+            <Styled_Textarea
+              id="form_enquire_Message"
+              name="message"
+            ></Styled_Textarea>
           </label>
           <p>Terms & Conditions notice goes here.</p>
           <Styled_submitBtn type="submit">Send enquiry</Styled_submitBtn>

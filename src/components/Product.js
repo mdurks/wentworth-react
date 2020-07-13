@@ -26,7 +26,12 @@ const Styled_Title = styled.h2`
 
 const Product = (props) => {
   return (
-    <Styled_ProductItem to={`/${props.category}/${props.product.slug}/`}>
+    <Styled_ProductItem
+      onClick={() => {
+        window.scroll(0, 0);
+      }}
+      to={`/${props.category}/${props.product.slug}/`}
+    >
       <Styled_Title>{props.product.name}</Styled_Title>
       <Styled_Img>
         <GraphImg
