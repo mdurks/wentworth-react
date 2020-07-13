@@ -3,6 +3,9 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import GraphImg from "graphcms-image";
 
+import Form_Enquire from "./components/Form-Enquire";
+import Form_Viewing from "./components/Form-Viewing";
+
 import styled from "styled-components";
 import Styled_SiteContainer from "./styles/commonStyles";
 
@@ -102,6 +105,27 @@ const Details = (props) => {
                   {RenderRichText()}
                   <p>£{product.price}</p>
                 </Styled_CMScontent>
+
+                <p>
+                  If you have a questions you can always call{" "}
+                  <a
+                    href="tel:00000000000"
+                    style={{ textDecoration: "underline" }}
+                  >
+                    00000 000 000
+                  </a>{" "}
+                  and speak to an advisor.
+                </p>
+                <p>
+                  <button
+                    style={{ padding: "10px 20px" }}
+                    onClick={window.print}
+                  >
+                    Print
+                  </button>
+                </p>
+                <Form_Enquire product={product.name} />
+                <Form_Viewing product={product.name} />
               </Styled_SiteContainer>
             </>
           );

@@ -34,8 +34,8 @@ const Contact = () => {
                 <h1>{items.heroHeading}</h1>
                 <p>{items.firstIntroMessage}</p>
 
-                <form name="contact" method="post" action="/">
-                  <input type="hidden" name="form-name" value="contact" />
+                <form name="Contact" method="post" action="/">
+                  <input type="hidden" name="form-name" value="Contact" />
                   <p>
                     <label>
                       Your Name: <input type="text" name="name" />
