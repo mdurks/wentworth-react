@@ -63,6 +63,9 @@ const MainNav = () => (
     <Styled_SiteContainer>
       <Link to="/contact/">Contact</Link> | <Link to="/contact/">Services</Link>{" "}
       | <Link to="/contact/">Blog</Link>
+      <button className="snipcart-checkout">
+        Cart (<span className="snipcart-items-count"></span>)
+      </button>
     </Styled_SiteContainer>
     <Styled_SiteContainer textCenter>
       <StyledLink exact={true} to="/">

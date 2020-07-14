@@ -45,10 +45,12 @@ const Styled_close = styled.button`
   position: absolute;
   top: 20px;
   right: 20px;
+  cursor: pointer;
 `;
 
 const Styled_submitBtn = styled.button`
   padding: 10px 20px;
+  cursor: pointer;
 `;
 
 const Form_Enquire = (props) => {

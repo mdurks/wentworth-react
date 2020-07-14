@@ -46,6 +46,10 @@ body {
   }
 }
 
+button {
+  cursor: pointer;
+}
+
 #app > * {
   flex: 1 0 auto;
 }
@@ -53,6 +57,28 @@ body {
 #app > :first-child,
 #app > :last-child {
   flex: 0 0 auto;
+}
+
+#snipcart {
+  position: relative;
+  z-index: 50;
+}
+.snipcart-checkout {
+  position: absolute;
+  top: 11px;
+  right: 70px;
+  width: 45px;
+  height: 40px;
+}
+@media (min-width: 768px) {
+  .snipcart-checkout {
+    top: 11px;
+    right: 10px;
+  }
+}
+.snipcart-cart-header__close-button .snipcart__icon {
+  width: 40px;
+  height: 40px;
 }
 
 .main {

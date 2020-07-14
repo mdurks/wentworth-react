@@ -39,6 +39,7 @@ const Styled_btn = styled.button`
     margin: 0 20px 0 0;
     padding: 15px 20px;
     width: 150px;
+    cursor: pointer;
   }
 
   ${(props) =>
@@ -117,17 +118,27 @@ const Details = (props) => {
                   {RenderRichText()}
                   <p>£{product.price}</p>
                   <p>
-                    <Styled_btn>Add to cart</Styled_btn>
+                    <Styled_btn
+                      className="snipcart-add-item"
+                      data-item-id={product.id}
+                      data-item-price={product.price}
+                      data-item-url={props.match.url}
+                      data-item-description={product.description}
+                      data-item-image={product.image[0].url}
+                      data-item-name={product.name}
+                    >
+                      Add to cart
+                    </Styled_btn>
                   </p>
                 </Styled_CMScontent>
 
                 <p>
                   If you have a questions you can always call{" "}
                   <a
-                    href="tel:00000000000"
+                    href="tel:080012341234"
                     style={{ textDecoration: "underline" }}
                   >
-                    00000 000 000
+                    0800 1234 1234
                   </a>{" "}
                   and speak to an advisor.
                 </p>
