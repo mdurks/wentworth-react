@@ -1,8 +1,9 @@
 {
   "id": "ckcgn5txc0gca0198idxivaeh",
+  "price": 2.00,
+  "url": "https://wentworths-react.netlify.app/products.json",
   "slug": "9ct-rose-gold-morganite-and-diamond-oval-cocktail-ring",
   "name": "9ct Rose Gold Morganite and Diamond Oval Cocktail Ring",
-  "price": 2,
   "description": "Made from solid gold, the design combines precious and semi-precious stones in a beautiful and flattering oval structure.\\n\\nWear this ring with the coordinating stud earrings for a dazzling evening look.\\n\\nMorganite weight 0.64ct, diamond weight 0.05ct\n",
   "image": [
     {
