@@ -122,7 +122,7 @@ const Details = (props) => {
                       className="snipcart-add-item"
                       data-item-id={product.id}
                       data-item-price={product.price}
-                      data-item-url={props.match.url}
+                      data-item-url="/products.json"
                       data-item-description={product.description}
                       data-item-image={product.image[0].url}
                       data-item-name={product.name}
