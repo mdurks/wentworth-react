@@ -121,7 +121,7 @@ const Details = (props) => {
                     <Styled_btn
                       className="snipcart-add-item"
                       data-item-id={product.id}
-                      data-item-price={product.price}
+                      data-item-price={`${product.price}.00`}
                       data-item-url="/products.json"
                       data-item-description={product.description}
                       data-item-image={product.image[0].url}
